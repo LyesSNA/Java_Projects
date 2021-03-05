@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.List;
+
 
 public class Main {
 
@@ -18,14 +20,15 @@ public class Main {
 
 		RegistreJoueur rj = new RegistreJoueur();
 		
-
+		
 		rj.addJoueur(j1);
 		rj.addJoueur(j2);
 		rj.addJoueur(j3);
 		rj.addJoueur(j4);
 		rj.addJoueur(j5);
 		
-		System.out.println(rj);
+		
+		System.out.println(rj.count(1970));
 		
 	}
 

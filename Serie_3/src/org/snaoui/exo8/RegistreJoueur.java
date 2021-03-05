@@ -16,33 +16,34 @@ public class RegistreJoueur {
 		registre = new HashMap<>();
 	}
 	
-	
 	public void addJoueur(Joueur j) {
-		if(registre.get(j.hashCode()) == null) {
+		if(registre.get(j.getDecade()) == null) {
 			List <Joueur> joueurs = new ArrayList<>();
 			joueurs.add(j);
-			registre.put(j.hashCode(), joueurs);
+			registre.put(j.getDecade(), joueurs);
 		}
 		else {
-			List<Joueur> joueurs = registre.get(j.hashCode());
+			List<Joueur> joueurs = registre.get(j.getDecade());
 			joueurs.add(j);
 		}
 			
 	}
 	
-	public List get(int i) {
-		for(List<Joueur> joueurs : registre.values()) {
-			for(Joueur j : joueurs) {
-				if (j.getAnneeDeNaissance() - j.getAnneeDeNaissance() % 10 == i)
-					return get(j.hashCode());
+			
+		public List get(int i) {				
+		
+			if(registre.containsKey(i)) {
+							return registre.get(i);
+				}
+			else {
+				System.out.println("no one born this decade");
+				return null;
 			}
-		}
-		System.out.println("no one born this decade");
-		return null;
+			
 	}
 	
 	public int count(int i) {
-		return get(i).size();
+		return this.get(i).size();
 	}
 	
 	public int count() {
@@ -53,7 +54,7 @@ public class RegistreJoueur {
 		return count;
 	}
 
-
+	
 	@Override
 	public String toString() {
 		String a ="";

@@ -1,6 +1,11 @@
 package org.snaoui.exo8;
 
 public class Joueur {
+	@Override
+	public String toString() {
+		return "nom = "+ nom;
+	}
+
 	int anneeDeNaissance;
 	String nom;
 	
@@ -11,6 +16,10 @@ public class Joueur {
 
 	public int getAnneeDeNaissance() {
 		return anneeDeNaissance;
+	}
+	
+	public int getDecade() {
+		return anneeDeNaissance - anneeDeNaissance % 10;
 	}
 
 	public void setAnneeDeNaissance(int anneeDeNaissance) {
