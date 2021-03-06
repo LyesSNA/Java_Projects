@@ -1,4 +1,4 @@
-package Exo9;
+package org.snaoui_exo9;
 
 import java.util.function.Predicate;
 
