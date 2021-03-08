@@ -3,6 +3,7 @@ package org.snaoui_exo11;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 public class useComparator {
 
@@ -18,6 +19,14 @@ public class useComparator {
 		Comparator<Personne> compLname = (p1, p2) -> p1.getNom().compareTo(p2.getNom());
 		
 		List<Personne> list = Arrays.asList(
+				
+				new Personne("SNAOUI","Lyes", 24),
+				new Personne("SNAOUI", "Aghiles", 26),
+				new Personne("GAYA", "Farid", 38),
+				new Personne("AREZKI", "Ghani", 26),
+				new Personne("STARYOUS", "Slimane", 19));
+		
+		List<Personne> listWithNulls = Arrays.asList(
 	
 		new Personne("SNAOUI","Lyes", 24),
 		new Personne("SNAOUI", "Aghiles", 26), null,
@@ -29,22 +38,16 @@ public class useComparator {
 
 		list.forEach((Personne p ) -> System.out.println(p));
 		
-		System.out.println("\n");
+		System.out.println("\n Unsorted");
 		
-//		list.sort(compLname);
-//		list.forEach((Personne p ) -> System.out.println(p));
-		
-		System.out.println("\n");
-		
-		Comparator<Personne> compLnFn = (p1, p2) -> {
-			if (p1.getNom().equals(p2.getNom()))
-				return p1.getPrenom().compareTo(p2.getPrenom());
-			else
-				return p1.getNom().compareTo(p2.getNom());
-		};
+		list.sort(compLname);
+		list.forEach((Personne p ) -> System.out.println(p));
+
+		Comparator<Personne> compLnFn = Comparator.comparing(Personne::getNom).thenComparing(Personne::getPrenom);
 				
-//		list.sort(compLnFn);
-//		list.forEach((Personne p ) -> System.out.println(p));
+		list.sort(compLnFn);
+		System.out.println("\nSorted List Lant name then First name");
+		list.forEach((Personne p ) -> System.out.println(p));
 		
 		
 		Comparator<Personne> compFnLn = (p1, p2) -> {
@@ -71,7 +74,10 @@ public class useComparator {
 				return p1.getNom().compareTo(p2.getNom());}
 		};
 		
+		
+		
 		list.sort(compLnFnWithNull);
+		System.out.println("\nSorted List Lant name then First name with NULLS");
 		list.forEach((Personne p ) -> System.out.println(p));
 		
 	}
