@@ -77,7 +77,7 @@ public class Usefunction {
 		List<String> orderByLengthThenNatural = new ArrayList<>(nbrs);
 		orderByLengthThenNatural.sort(Comparator.comparing(String::length).thenComparing((s1,s2) -> s1.compareTo(s2)));
 		orderByLengthThenNatural.forEach((String s) -> System.out.println(s));
-			
+		
 
 		
 	}
