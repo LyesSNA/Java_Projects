@@ -67,10 +67,10 @@ public class use_streams {
 
 		System.out.println("\n pair length elements  " + pairLengthList);
 
-		Optional<Integer> longest = 
+		int longest = 
 				nbrs.stream()
 					.map(str -> str.length())
-					.max(Comparator.naturalOrder());
+					.max(Comparator.naturalOrder()).orElseThrow();
 					
 		System.out.println("\n paLongest element length  " + longest);
 	

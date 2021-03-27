@@ -1,0 +1,33 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f85d9d8ef21, pid=13244, tid=13261
+#
+# JRE version: OpenJDK Runtime Environment AdoptOpenJDK (15.0.2+7) (build 15.0.2+7)
+# Java VM: OpenJDK 64-Bit Server VM AdoptOpenJDK (15.0.2+7, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x3f21]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x71
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/lyes-sna/git/Java_Projects/Serie_6/core.13244)
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/AdoptOpenJDK/openjdk-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:35363 -javaagent:/home/lyes-sna/eclipse/java-2020-122/eclipse/configuration/org.eclipse.osgi/215/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 org.snaoui.exo14.use_streams
+
+Host: Intel(R) Core(TM) i3-4005U CPU @ 1.70GHz, 4 cores, 3G, Ubuntu 18.04.2 LTS
+Time: Tue Mar 16 03:34:13 2021 CET elapsed time: 97249.017870 seconds (1d 3h 0m 49s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f85d41145a0):  JavaThread "Signal Dispatcher" daemon [_thread_in_vm, id=13261, stack(0x00007f85aae63000,0x00007f85aaf64000)]
+
+Stack: [0x00007f85aae63000,0x00007f85aaf64000],  sp=0x00007f85aaf61100,  free space=1016k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x3f21]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x71
+C  [libjimage.so+0x4aea]  ImageFileReader::find_location_index(char const*, unsigned long long*) const+0x3a
+C  [libjimage.so+0x4fea]  JIMAGE_FindResource+0xfa
+V  [libjvm.so+0x51cb4f]
